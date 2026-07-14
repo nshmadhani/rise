@@ -218,10 +218,14 @@ Landing tests waitlist demand before paywall builds.
 
 ## 11. Success metrics (sell-first)
 
-1. Waitlist emails / week  
-2. Landing → signup conversion  
-3. (Later) D1 / D7 retention after app  
-4. (Later) Free → paid conversion  
+**Acquisition: paid ads only** (organic is deprioritized — saturated category, easy to overlook).
+
+1. Ad spend → landing visitors (Vercel Analytics)  
+2. Visitors → waitlist emails  
+3. **CPA** = spend / email  
+4. Landing conversion % = emails / visitors  
+
+Iterate creatives + landing copy against CPA, not vanity traffic.
 
 ---
 
