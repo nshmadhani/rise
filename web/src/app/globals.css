@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #000000;
+  --bg-elevated: #0a0a0c;
+  --card: #1c1c1e;
+  --card-border: #2c2c2e;
+  --text: #f5f5f7;
+  --muted: #8e8e93;
+  --faint: #636366;
+  --accent: #5eead4;
+  --green: #30d158;
+  --green-dim: #248a3d;
+  --green-empty: #1f3d28;
+  --violet: #bf5af2;
+  --violet-dim: #8e44ad;
+  --violet-empty: #2d1f3a;
+  --orange: #ff9f0a;
+  --orange-dim: #cc7a00;
+  --orange-empty: #3a2a12;
+  --blue: #64d2ff;
+  --blue-dim: #32ade6;
+  --blue-empty: #0a2a3a;
+  --coral: #ff6482;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-rise-green: var(--green);
+  --color-rise-violet: var(--violet);
+  --color-rise-orange: var(--orange);
+  --color-rise-blue: var(--blue);
+  --color-rise-coral: var(--coral);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-outfit);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--text);
+}
+
+@keyframes rise-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+
+.rise-fade-up {
+  animation: rise-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.rise-delay-1 {
+  animation-delay: 0.08s;
+}
+.rise-delay-2 {
+  animation-delay: 0.16s;
+}
+.rise-delay-3 {
+  animation-delay: 0.24s;
+}
+.rise-delay-4 {
+  animation-delay: 0.32s;
+}
+
+.rise-hero-glow {
+  animation: rise-glow 8s ease-in-out infinite;
+}
+
+.phone-frame {
+  background: #111113;
+  border: 1px solid var(--card-border);
+  border-radius: 2rem;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 24px 60px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+
+.grid-cell {
+  aspect-ratio: 1;
+  border-radius: 3px;
+}
