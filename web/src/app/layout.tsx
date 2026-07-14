@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Manrope, Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -36,7 +37,10 @@ export default function RootLayout({
       lang="en"
       className={`${manrope.variable} ${outfit.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-bg text-text">{children}</body>
+      <body className="min-h-full flex flex-col bg-bg text-text">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
