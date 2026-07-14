@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { addWaitlistEmail, isValidEmail } from "@/lib/waitlist";
 
+export const runtime = "edge";
+
 export async function POST(req: NextRequest) {
   let body: { email?: string };
   try {

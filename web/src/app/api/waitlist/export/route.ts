@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { listWaitlistEmails, storageMode } from "@/lib/waitlist";
 
+export const runtime = "edge";
+
 export async function GET(req: NextRequest) {
   const secret = process.env.WAITLIST_ADMIN_SECRET;
   if (!secret) {

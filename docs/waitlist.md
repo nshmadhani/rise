@@ -1,33 +1,25 @@
 # Waitlist storage
 
-Emails from the landing form are saved in two layers:
+Emails are saved by the **Edge** API route `POST /api/waitlist`.
 
-## Local (always)
+## Store
 
-On the server machine / local dev:
+A **private GitHub gist** (`waitlist.json`) — durable, no Supabase/Postgres to manage.
 
-- `web/data/waitlist.json`
-- `web/data/waitlist.csv`
+Why not a local SQLite file? On Vercel, Edge/serverless has **no durable disk**. A “local DB” resets on every deploy.
 
-Good for development. **Not durable on Vercel** (ephemeral filesystem).
-
-## Supabase (recommended for production)
-
-1. Create a free project at [supabase.com](https://supabase.com).  
-2. Run SQL in `docs/waitlist-supabase.sql`.  
-3. Copy `.env.example` → `web/.env.local` and set:
+## Env (already set in local `.env.local`)
 
 ```bash
-SUPABASE_URL=...
-SUPABASE_SERVICE_ROLE_KEY=...
+WAITLIST_GIST_ID=...
+WAITLIST_GITHUB_TOKEN=...   # GitHub token with gist scope
 WAITLIST_ADMIN_SECRET=...
 ```
 
-4. Restart `npm run dev`. New signups go to Supabase **and** local backup.
+On Vercel: Project → Settings → Environment Variables → add the same three, then redeploy.
 
 ## Export
 
 ```bash
 curl "http://localhost:3001/api/waitlist/export?secret=YOUR_SECRET"
-curl "http://localhost:3001/api/waitlist/export?secret=YOUR_SECRET&format=csv" -o waitlist.csv
 ```
