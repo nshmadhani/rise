@@ -17,4 +17,13 @@ npm install
 npm run dev
 ```
 
-Waitlist: see `docs/waitlist.md`. App design: `docs/superpowers/specs/2026-07-14-rise-app-design.md`.
+## Deploy
+
+- **GitHub:** https://github.com/nshmadhani/rise  
+- **App root on Vercel:** set Root Directory to `web`  
+- **Domain:** riseto.app (connect in Vercel → Domains after purchase)
+
+```bash
+cd web
+npx vercel --prod
+```
